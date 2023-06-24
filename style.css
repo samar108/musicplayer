@@ -1,122 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-body{
-    background-color: antiquewhite;
+body {
+  background-color: lightgreen;
+
+  /* Smoothly transition the background color */
+  transition: background-color 0.5s;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+/* Using flex with the column direction to
+     align items in a vertical direction */
+.player {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  /* background: yellow; */
 }
 
-nav{
-    font-family: 'Ubuntu', sans-serif;
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+  /* background: red; */
 }
 
-nav ul{
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    height: 65px;
-    background-color: black;
-    color: white;
+.track-art {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  background-image: URL("https://source.unsplash.com/Qrspubmx6kE/640x360");
+  background-size: cover;
+  background-position: center;
+  /* border-radius: 15%; */
+  border-radius: 50px;
+/* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+  box-shadow: 5px 5px 14px #5a5a5a,
+             -5px -5px 14px #ffffff;
 }
 
-nav ul li{
-    padding: 0 12px;
-}
-.brand img{
-    width: 44px;
-    padding: 0 8px;
+/* Changing the font sizes to suitable ones */
+.now-playing {
+  font-size: 1rem;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 1.3rem;
+.track-name {
+  font-size: 3rem;
 }
 
-.container{
-    min-height: 72vh;
-    background-color: black;
-    color: white;
-   font-family: 'Varela Round', sans-serif;
-   display: flex;
-   margin: 23px auto;
-   width: 70%;
-   border-radius: 12px;
-   padding: 34px;
-   background-image: url('bg.jpg');
+.track-artist {
+  font-size: 1.5rem;
 }
 
-.bottom{
-    position: sticky;
-    bottom: 0;
-    height: 130px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
+/* Using flex with the row direction to
+     align items in a horizontal direction */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 150px;
+background: #e0e0e0;
+box-shadow: inset 5px 5px 10px #6c6c6c,
+            inset -5px -5px 10px #ffffff;
 }
 
-.icons{
-    margin-top: 14px; 
-}
-.icons i{
-    cursor: pointer;
+.playpause-track,
+.prev-track,
+.next-track {
+  padding: 25px;
+  opacity: 0.8;
+
+  /* Smoothly transition the opacity */
+  transition: opacity 0.2s;
 }
 
-#myProgressBar{
-    width: 80vw; 
-    cursor: pointer;
+/* Change the opacity when mouse is hovered */
+.playpause-track:hover,
+.prev-track:hover,
+.next-track:hover {
+  opacity: 1;
 }
 
-.songItemContainer{
-    margin-top: 74px;
+/* Define the slider width so that it scales properly */
+.slider_container {
+  width: 75%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.songItem{
-    height: 50px;
-    display: flex;
-    background-color: white;
-    
-    color: black;
-    margin: 12px 0;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 34px;
+/* Modify the appearance of the slider */
+.seek_slider,
+.volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 7px;
+  background: grey;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
-.songItem img{
-    width: 43px;
-    margin: 0 23px;
-    border-radius: 34px;
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-.timestamp{
-    margin: 0 23px;
+/* Change the opacity when mouse is hovered */
+.seek_slider:hover,
+.volume_slider:hover {
+  opacity: 1;
 }
 
-.timestamp i{
-    cursor: pointer;
+.seek_slider {
+  width: 60%;
 }
 
-.songInfo{
-    position: absolute;
-    left: 10vw;
-    font-family: 'Varela Round', sans-serif;
+.volume_slider {
+  width: 30%;
 }
 
-.songInfo img{
-    opacity: 0;
-    transition: opacity 0.4s ease-in;
+.current-time,
+.total-duration {
+  padding: 10px;
 }
 
-@media only screen and (max-width: 1100px) {
-    body {
-      background-color: red;
-    }
-  }
+i.fa-volume-down,
+i.fa-volume-up {
+  padding: 10px;
+}
+
+/* Change the mouse cursor to a pointer
+     when hovered over */
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+  cursor: pointer;
+}
